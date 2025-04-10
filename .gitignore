@@ -2,3 +2,4 @@
 .env
 pyproject.toml
 Output Recording.mov
+__pycache__
