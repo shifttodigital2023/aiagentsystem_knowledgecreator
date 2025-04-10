@@ -1,0 +1,148 @@
+# config/tasks.yaml
+segment_document:
+  description: >
+    Analyze the document content provided via the FileReadTool.
+    
+    Identify the main sections, subsections, and logical units within the document.
+    For each segment, provide:
+    1. A clear heading or identifier
+    2. The segment content
+    3. The logical level (main section, subsection, etc.)
+    
+    Output the segments in a structured format that preserves the document hierarchy.
+  expected_output: >
+    A structured list of document segments with clear identifiers, content, and hierarchy information.
+
+extract_entities:
+  description: >
+    Review the segmented document and identify all named entities and key concepts.
+    For each segment provided here: {context}
+    
+    Extract and list:
+    1. Named entities (people, organizations, places, dates)
+    2. Key technical terms and domain-specific vocabulary
+    3. Central concepts and main ideas
+    
+    For each entity or concept, note the segment it appears in and its importance to the overall document.
+  expected_output: >
+    A comprehensive list of entities and concepts organized by document segment, with importance indicators.
+
+analyze_relationships:
+  description: >
+    Analyze the entities and concepts extracted here: {context}
+    
+    Identify the semantic relationships between them, including:
+    1. Hierarchical relationships (is-a, part-of)
+    2. Causal relationships (causes, results from)
+    3. Functional relationships (used-for, enables)
+    4. Other significant conceptual connections
+    
+    Map these relationships clearly, indicating which concepts are connected and how.
+  expected_output: >
+    A detailed mapping of relationships between entities and concepts, clearly showing the connection types.
+
+define_concepts:
+  description: >
+    For each key concept identified here: {context}
+    
+    Create a clear, concise definition based on information in the document.
+    Each definition should:
+    1. Capture the essence of the concept as used in this specific document
+    2. Be understandable without additional context
+    3. Cite or reference the relevant document sections where the concept is discussed
+    
+    Prioritize technical accuracy while maintaining clarity.
+  expected_output: >
+    A glossary of key concepts with precise definitions derived from the document content.
+
+identify_qa_pairs:
+  description: >
+    Review the document segments: {context}
+    
+    Identify both explicit questions directly stated in the text and implicit questions that sections of the document answer.
+    For each question identified:
+    1. Formulate a clear, direct question
+    2. Extract or compose a comprehensive answer from the document content
+    3. Note which segment(s) contain the answer information
+    
+    Ensure the Q&A pairs cover the most important information in the document.
+  expected_output: >
+    A set of question-answer pairs that comprehensively address the key information in the document.
+
+create_schema:
+  description: >
+    Using the concepts, relationships, and document structure provided:
+    - Concepts and entities: {context}
+    - Relationships: {context}
+    - Document structure: {context}
+    
+    Create a hierarchical knowledge schema or concept map that represents the document's content.
+    The schema should:
+    1. Show main concepts and their subordinate concepts
+    2. Indicate relationships between concepts
+    3. Follow the logical structure of the original document
+    4. Highlight the most important concepts and relationships
+    
+    Output this as a textual representation of a concept map with clear parent-child relationships and connections.
+  expected_output: >
+    A textual representation of a hierarchical concept map showing the document's knowledge structure.
+
+write_faqs:
+  description: >
+    Using the Q&A pairs identified: {context}
+    
+    Transform these into a comprehensive FAQ document.
+    For each FAQ entry:
+    1. Refine the question for clarity and directness
+    2. Ensure the answer is complete but concise
+    3. Organize related questions together
+    4. Prioritize questions that address core concepts and common user needs
+    
+    Format the FAQs in a clear, consistent structure that would be immediately useful to a reader.
+  expected_output: >
+    A well-organized, user-friendly FAQ document addressing the key questions arising from the document content.
+
+validate_outputs:
+  description: >
+    Review all outputs created by previous agents:
+    - Segmented document: {context}
+    - Extracted entities and concepts: {context}
+    - Relationship analysis: {context}
+    - Concept definitions: {context}
+    - Q&A pairs: {context}
+    - Knowledge schema: {context}
+    - FAQs: {context}
+    
+    Identify any:
+    1. Factual errors or misinterpretations
+    2. Inconsistencies between different outputs
+    3. Incomplete or unclear information
+    4. Areas where refinement is needed
+    
+    Provide specific feedback for each issue found.
+  expected_output: >
+    A detailed validation report highlighting any issues found and recommendations for improvements.
+
+integrate_knowledge:
+  description: >
+    Combine all validated outputs into a cohesive knowledge representation:
+    - Segmented document: {context}
+    - Extracted entities and concepts: {context}
+    - Relationship analysis: {context}
+    - Concept definitions: {context}
+    - Q&A pairs: {context}
+    - Knowledge schema: {context}
+    - FAQs: {context}
+    - Validation feedback: {context}
+    
+    Create an integrated knowledge document that includes:
+    1. An executive summary of the document's key points
+    2. The concept map/schema showing the document's structure
+    3. A glossary of key terms and their definitions
+    4. The refined FAQ section
+    5. Any additional insights or metadata that would be valuable
+    
+    Format this as a comprehensive knowledge document in Markdown that could serve as a standalone reference.
+  expected_output: >
+    A complete, structured knowledge document that synthesizes all the extracted information 
+    in an accessible, useful format.
