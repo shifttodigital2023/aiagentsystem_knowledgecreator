@@ -27,7 +27,7 @@ This project implements an advanced document knowledge extraction system using a
 1.  Clone this repository:
 
     ```bash
-    git clone [https://github.com/your-username/knowledge-extractor.git](https://github.com/your-username/knowledge-extractor.git)
+    git clone [https://github.com/your-username/knowledge-extractor.git](https://github.com/shifttodigital2023/aiagentsystem_knowledgecreator)
     cd knowledge-extractor
     ```
     
